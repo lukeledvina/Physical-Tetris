@@ -1,3 +1,14 @@
-[gd_scene format=3 uid="uid://cy6hwfffsgrs7"]
+[gd_scene load_steps=2 format=3 uid="uid://cy6hwfffsgrs7"]
+
+[ext_resource type="Texture2D" uid="uid://dt6ao5sqt2kre" path="res://Grid/grid.png" id="1_ywelm"]
 
 [node name="Game" type="Node2D"]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Grid" type="Node2D" parent="."]
+
+[node name="GridBackground" type="Sprite2D" parent="Grid"]
+modulate = Color(1, 1, 1, 0.301961)
+position = Vector2(640, 360)
+texture = ExtResource("1_ywelm")
