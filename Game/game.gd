@@ -7,4 +7,6 @@ extends Node2D
 # A signal will need to be sent to the PlayerController to know to grab control of the new block
 
 
-# does this show up at home
+
+# Use this script to connect the functionality of child components. Don't have it be full of a ton of different functionality
+
