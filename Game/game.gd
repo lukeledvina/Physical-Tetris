@@ -6,6 +6,7 @@ extends Node2D
 # the PlayerController.
 # A signal will need to be sent to the PlayerController to know to grab control of the new block
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 
@@ -13,3 +14,5 @@ extends Node2D
 
 =======
 >>>>>>> parent of 0c75646 (Update game.gd)
+=======
+>>>>>>> parent of 0566024 (Setup scripts)
