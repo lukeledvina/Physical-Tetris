@@ -5,8 +5,11 @@ extends Node2D
 # a block spawner component will need to spawn blocks and put them as children of
 # the PlayerController.
 # A signal will need to be sent to the PlayerController to know to grab control of the new block
+<<<<<<< HEAD
 
 
 
 # Use this script to connect the functionality of child components. Don't have it be full of a ton of different functionality
 
+=======
+>>>>>>> parent of 0c75646 (Update game.gd)
