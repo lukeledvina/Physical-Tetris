@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d1spo5kwafqwq"]
+
+[node name="IBlock" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

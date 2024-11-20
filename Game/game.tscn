@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cy6hwfffsgrs7"]
+[gd_scene load_steps=8 format=3 uid="uid://cy6hwfffsgrs7"]
 
+[ext_resource type="Script" path="res://Game/game.gd" id="1_2n04a"]
 [ext_resource type="Texture2D" uid="uid://dt6ao5sqt2kre" path="res://Grid/grid.png" id="1_ywelm"]
+[ext_resource type="Script" path="res://Game/BlockSpawner/block_spawner.gd" id="3_e7cta"]
+[ext_resource type="Script" path="res://Game/PlayerController/player_controller.gd" id="4_dy60s"]
+[ext_resource type="Script" path="res://Game/BlockSelector/block_selector.gd" id="5_gftsj"]
+[ext_resource type="Script" path="res://Game/block_container.gd" id="6_u5ko3"]
+[ext_resource type="Script" path="res://Game/reaction_manager.gd" id="7_s6w44"]
 
 [node name="Game" type="Node2D"]
-
-[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("1_2n04a")
 
 [node name="Grid" type="Node2D" parent="."]
 
@@ -12,3 +17,20 @@
 modulate = Color(1, 1, 1, 0.301961)
 position = Vector2(640, 360)
 texture = ExtResource("1_ywelm")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="BlockSpawner" type="Node2D" parent="."]
+script = ExtResource("3_e7cta")
+
+[node name="PlayerController" type="Node2D" parent="."]
+script = ExtResource("4_dy60s")
+
+[node name="BlockSelector" type="Node2D" parent="."]
+script = ExtResource("5_gftsj")
+
+[node name="BlockContainer" type="Node2D" parent="."]
+script = ExtResource("6_u5ko3")
+
+[node name="ReactionManager" type="Node2D" parent="."]
+script = ExtResource("7_s6w44")

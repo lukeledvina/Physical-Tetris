@@ -1,0 +1,7 @@
+decide where the reaction logic will take place, on the blocks themselves, etc...
+
+how will reactions act, take the entire block, or just sections of blocks...?
+if colliding with multiple materials, which reactions take precedence...?
+
+
+decide how to architect the blocks, each has four single tetris blocks
