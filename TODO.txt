@@ -5,3 +5,12 @@ if colliding with multiple materials, which reactions take precedence...?
 
 
 decide how to architect the blocks, each has four single tetris blocks
+
+
+how to move blocks (when to stop them),
+	i think have collision on all of them
+	but use rays when a timer goes off to detect if it can go down again
+	or if it needs to stop moving and check for reactions at that point
+	
+	this is because as the shape rotates, what will be considered its "bottom"
+	will change

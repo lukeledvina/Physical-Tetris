@@ -1,5 +1,30 @@
-[gd_scene format=3 uid="uid://d1spo5kwafqwq"]
+[gd_scene load_steps=3 format=3 uid="uid://d1spo5kwafqwq"]
 
-[node name="IBlock" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://c37wiaqj314u4" path="res://Blocks/tetris-block.png" id="1_ra174"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klco8"]
+size = Vector2(128, 32)
+
+[node name="IBlock" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_klco8")
+
+[node name="SpriteContainer" type="Node2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="SpriteContainer"]
+position = Vector2(-48, 0)
+texture = ExtResource("1_ra174")
+
+[node name="Sprite2D2" type="Sprite2D" parent="SpriteContainer"]
+position = Vector2(-16, 0)
+texture = ExtResource("1_ra174")
+
+[node name="Sprite2D3" type="Sprite2D" parent="SpriteContainer"]
+position = Vector2(16, 0)
+texture = ExtResource("1_ra174")
+
+[node name="Sprite2D4" type="Sprite2D" parent="SpriteContainer"]
+position = Vector2(48, 0)
+texture = ExtResource("1_ra174")
