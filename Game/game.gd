@@ -11,6 +11,26 @@ extends Node2D
 
 
 
-
 # take the block that gets pushed into block container selected by block selector,
 # allow playercontroller to see and control it
+
+@onready var player_controller = $PlayerController
+@onready var block_spawner = $BlockSpawner
+@onready var block_selector = $BlockSelector
+@onready var block_container = $BlockContainer
+@onready var reaction_manager = $ReactionManager
+
+func _ready() -> void:
+	pass
+
+
+
+func spawn_next_block():
+	# call functions on child nodes
+	var block_scene: PackedScene
+	var block_instance: StaticBody2D
+	block_scene = block_selector.select_block()
+	block_instance = block_spawner.spawn_block(block_scene, $BlockContainer/SpawnPosition.global_position)
+	block_container.add_child(block_instance)
+	#player_controller.current_block = block
+	pass

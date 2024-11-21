@@ -1,30 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1spo5kwafqwq"]
+[gd_scene load_steps=2 format=3 uid="uid://d1spo5kwafqwq"]
 
-[ext_resource type="Texture2D" uid="uid://c37wiaqj314u4" path="res://Blocks/tetris-block.png" id="1_ra174"]
+[ext_resource type="PackedScene" uid="uid://blu56r3vgamww" path="res://Blocks/block.tscn" id="1_dxs3j"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_klco8"]
-size = Vector2(128, 32)
+[node name="IBlock" instance=ExtResource("1_dxs3j")]
 
-[node name="IBlock" type="StaticBody2D"]
+[node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2(0, 16)
+polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_klco8")
+[node name="SpriteContainer" parent="." index="1"]
+modulate = Color(1, 0.145098, 0.227451, 1)
+position = Vector2(0, 16)
 
-[node name="SpriteContainer" type="Node2D" parent="."]
-modulate = Color(1, 0, 0, 1)
-
-[node name="Sprite2D" type="Sprite2D" parent="SpriteContainer"]
+[node name="Sprite2D" parent="SpriteContainer" index="0"]
 position = Vector2(-48, 0)
-texture = ExtResource("1_ra174")
 
-[node name="Sprite2D2" type="Sprite2D" parent="SpriteContainer"]
+[node name="Sprite2D2" parent="SpriteContainer" index="1"]
 position = Vector2(-16, 0)
-texture = ExtResource("1_ra174")
 
-[node name="Sprite2D3" type="Sprite2D" parent="SpriteContainer"]
+[node name="Sprite2D3" parent="SpriteContainer" index="2"]
 position = Vector2(16, 0)
-texture = ExtResource("1_ra174")
 
-[node name="Sprite2D4" type="Sprite2D" parent="SpriteContainer"]
+[node name="Sprite2D4" parent="SpriteContainer" index="3"]
 position = Vector2(48, 0)
-texture = ExtResource("1_ra174")

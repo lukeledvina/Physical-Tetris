@@ -1,3 +1,10 @@
+FOCUS ON WHAT IS TRULY IMPORTANT RIGHT NOW
+	GET THE BLOCKS TO FALL, ALLOW THE PLAYER TO CONTROL THEM, AND GET THE NEXT BLOCK TO SPAWN
+
+
+
+
+
 decide where the reaction logic will take place, on the blocks themselves, etc...
 
 how will reactions act, take the entire block, or just sections of blocks...?
