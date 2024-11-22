@@ -12,8 +12,25 @@ var down_index: int = 2:
 			down_index = 0
 		elif index < 0:
 			down_index = 3
-var right_index: int = 1
-var left_index: int = 3
+		else:
+			down_index = index
+var right_index: int = 1:
+	set(index):
+		if index > 3:
+			right_index = 0
+		elif index < 0:
+			right_index = 3
+		else:
+			right_index = index
+var left_index: int = 3:
+	set(index):
+		if index > 3:
+			left_index = 0
+		elif index < 0:
+			left_index = 3
+		else:
+			left_index = index
+
 var ray_cast_container_array: Array = [north_container, east_container, south_container, west_container]
 
 # these functions determine which ray cast will be active next
