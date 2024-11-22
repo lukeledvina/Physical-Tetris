@@ -43,5 +43,11 @@ position = Vector2(640, 39)
 [node name="ReactionManager" type="Node2D" parent="."]
 script = ExtResource("7_s6w44")
 
+[node name="GameBorder" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameBorder"]
+polygon = PackedVector2Array(479, 39, 430, 39, 425, 719, 870, 719, 873, 39, 801, 39, 801, 681, 479, 681)
+
 [connection signal="timeout" from="PlayerController/BlockFallTimer" to="PlayerController" method="_on_block_fall_timer_timeout"]
 [connection signal="timeout" from="PlayerController/MovementCooldownTimer" to="PlayerController" method="_on_movement_cooldown_timer_timeout"]

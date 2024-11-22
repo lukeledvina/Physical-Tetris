@@ -61,6 +61,11 @@ drop_piece={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Blocks"
+2d_physics/layer_2="Boundaries"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

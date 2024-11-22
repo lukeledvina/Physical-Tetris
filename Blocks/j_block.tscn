@@ -22,3 +22,18 @@ position = Vector2(-32, 48)
 
 [node name="Sprite2D4" parent="SpriteContainer" index="3"]
 position = Vector2(-32, 16)
+
+[node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="0"]
+position = Vector2(-48, 60)
+target_position = Vector2(0, 16)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="1"]
+position = Vector2(-16, 60)
+target_position = Vector2(0, 16)
+collision_mask = 3
+
+[node name="RayCast2D3" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="2"]
+position = Vector2(16, 60)
+target_position = Vector2(0, 16)
+collision_mask = 3

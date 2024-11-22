@@ -6,6 +6,8 @@ extends StaticBody2D
 @onready var west_container: Node2D = $RayCastContainer/WestRayCastContainer
 
 var down_ray_cast_container: Node2D = south_container
+var right_ray_cast_container: Node2D = east_container
+var left_ray_cast_container: Node2D = west_container
 var down_index: int = 2:
 	set(index):
 		if index > 3:
@@ -39,15 +41,44 @@ func rotate_clockwise():
 	right_index -= 1
 	left_index -= 1
 	down_ray_cast_container = ray_cast_container_array[down_index]
+	right_ray_cast_container = ray_cast_container_array[right_index]
+	left_ray_cast_container = ray_cast_container_array[left_index]
 
 func rotate_counter_clockwise():
 	down_index += 1
 	right_index += 1
 	left_index += 1
 	down_ray_cast_container = ray_cast_container_array[down_index]
+	right_ray_cast_container = ray_cast_container_array[right_index]
+	left_ray_cast_container = ray_cast_container_array[left_index]
 
 # checks if the raycasts pointing "down" are colliding with anything
-func check_raycast():
-	pass
+#currently the wrong arrays are used to get children
+func can_move_down() -> bool: #works
+	var raycasts: Array = south_container.get_children()
+	for raycast in raycasts:
+		if raycast.is_colliding():
+			return false
+		else:
+			continue
+	return true
+	
+func can_move_right() -> bool: #doesnt work
+	var raycasts: Array = east_container.get_children()
+	for raycast in raycasts:
+		if raycast.is_colliding():
+			return false
+		else:
+			continue
+	return true
+	
+func can_move_left() -> bool: #doesnt work
+	var raycasts: Array = west_container.get_children()
+	for raycast in raycasts:
+		if raycast.is_colliding():
+			return false
+		else:
+			continue
+	return true
 
 	

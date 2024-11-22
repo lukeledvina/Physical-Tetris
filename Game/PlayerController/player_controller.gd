@@ -21,11 +21,12 @@ var can_move: bool = true
 
 
 # block raycasts left and right need to determine if the block can move left or right
+# current_block.can_move_right() / .can_move_left()
 func _physics_process(delta: float) -> void:
 	if active and can_move:
-		if Input.is_action_pressed("move_left"):
+		if Input.is_action_pressed("move_left") and current_block.can_move_left():
 			current_block.global_position.x -= 32
-		elif Input.is_action_pressed("move_right"):
+		elif Input.is_action_pressed("move_right") and current_block.can_move_right():
 			current_block.global_position.x += 32
 		can_move = false
 		$MovementCooldownTimer.start()
@@ -35,7 +36,8 @@ func _physics_process(delta: float) -> void:
 # if they do, signal to the game to give a new block and lose control of the current one (active = false)
 # if they don't drop the block's position by 32px
 func _on_block_fall_timer_timeout() -> void:
-	current_block.global_position.y += 32
+	if current_block.can_move_down():
+		current_block.global_position.y += 32
 
 
 func _on_movement_cooldown_timer_timeout() -> void:
