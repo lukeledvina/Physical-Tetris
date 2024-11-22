@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://blu56r3vgamww"]
+[gd_scene load_steps=3 format=3 uid="uid://blu56r3vgamww"]
 
 [ext_resource type="Texture2D" uid="uid://c37wiaqj314u4" path="res://Blocks/tetris-block.png" id="1_lnf2k"]
+[ext_resource type="Script" path="res://Blocks/block.gd" id="1_wm3d2"]
 
 [node name="Block" type="StaticBody2D"]
+script = ExtResource("1_wm3d2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
@@ -22,10 +24,10 @@ texture = ExtResource("1_lnf2k")
 
 [node name="RayCastContainer" type="Node2D" parent="."]
 
-[node name="SouthRayCast" type="Node2D" parent="RayCastContainer"]
+[node name="SouthRayCastContainer" type="Node2D" parent="RayCastContainer"]
 
-[node name="NorthRayCast" type="Node2D" parent="RayCastContainer"]
+[node name="NorthRayCastContainer" type="Node2D" parent="RayCastContainer"]
 
-[node name="EastRayCast" type="Node2D" parent="RayCastContainer"]
+[node name="EastRayCastContainer" type="Node2D" parent="RayCastContainer"]
 
-[node name="WestRayCast" type="Node2D" parent="RayCastContainer"]
+[node name="WestRayCastContainer" type="Node2D" parent="RayCastContainer"]

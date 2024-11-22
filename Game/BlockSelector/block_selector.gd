@@ -10,7 +10,7 @@ var s_block: PackedScene
 var t_block: PackedScene
 var z_block: PackedScene
 
-var blocks: Array = [i_block, j_block, l_block, o_block, s_block, t_block, z_block]
+var blocks: Array = [i_block, j_block]#, l_block, o_block, s_block, t_block, z_block]
 
 var available_blocks: Array = blocks
 

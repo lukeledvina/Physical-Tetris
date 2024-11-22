@@ -21,7 +21,7 @@ extends Node2D
 @onready var reaction_manager = $ReactionManager
 
 func _ready() -> void:
-	pass
+	spawn_next_block()
 
 
 
@@ -32,5 +32,4 @@ func spawn_next_block():
 	block_scene = block_selector.select_block()
 	block_instance = block_spawner.spawn_block(block_scene, $BlockContainer/SpawnPosition.global_position)
 	block_container.add_child(block_instance)
-	#player_controller.current_block = block
-	pass
+	player_controller.current_block = block_instance
