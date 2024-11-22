@@ -6,22 +6,31 @@ extends StaticBody2D
 @onready var west_container: Node2D = $RayCastContainer/WestRayCastContainer
 
 var down_ray_cast_container: Node2D = south_container
-var down_index: int = 2
+var down_index: int = 2:
+	set(index):
+		if index > 3:
+			down_index = 0
+		elif index < 0:
+			down_index = 3
+var right_index: int = 1
+var left_index: int = 3
 var ray_cast_container_array: Array = [north_container, east_container, south_container, west_container]
 
 # these functions determine which ray cast will be active next
 func rotate_clockwise():
-	down_index += 1
-	if down_index > 3:
-		down_index = 0
+	down_index -= 1
+	right_index -= 1
+	left_index -= 1
 	down_ray_cast_container = ray_cast_container_array[down_index]
 
 func rotate_counter_clockwise():
-	down_index -= 1
-	if down_index < 0:
-		down_index = 3
+	down_index += 1
+	right_index += 1
+	left_index += 1
 	down_ray_cast_container = ray_cast_container_array[down_index]
 
 # checks if the raycasts pointing "down" are colliding with anything
 func check_raycast():
 	pass
+
+	

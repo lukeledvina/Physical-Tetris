@@ -9,8 +9,6 @@ extends Node2D
 
 # Use this script to connect the functionality of child components. Don't have it be full of a ton of different functionality
 
-
-
 # take the block that gets pushed into block container selected by block selector,
 # allow playercontroller to see and control it
 
@@ -22,8 +20,6 @@ extends Node2D
 
 func _ready() -> void:
 	spawn_next_block()
-
-
 
 func spawn_next_block():
 	# call functions on child nodes
