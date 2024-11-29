@@ -28,6 +28,9 @@ script = ExtResource("4_dy60s")
 [node name="MovementCooldownTimer" type="Timer" parent="PlayerController"]
 wait_time = 0.05
 
+[node name="BlockPlacementTimer" type="Timer" parent="PlayerController"]
+one_shot = true
+
 [node name="BlockSpawner" type="Node2D" parent="."]
 script = ExtResource("3_e7cta")
 
@@ -51,3 +54,4 @@ polygon = PackedVector2Array(479, 39, 430, 39, 425, 719, 870, 719, 873, 39, 801,
 
 [connection signal="timeout" from="PlayerController/BlockFallTimer" to="PlayerController" method="_on_block_fall_timer_timeout"]
 [connection signal="timeout" from="PlayerController/MovementCooldownTimer" to="PlayerController" method="_on_movement_cooldown_timer_timeout"]
+[connection signal="timeout" from="PlayerController/BlockPlacementTimer" to="PlayerController" method="_on_block_placement_timer_timeout"]

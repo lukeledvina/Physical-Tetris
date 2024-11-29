@@ -6,7 +6,7 @@ extends Node
 # logic to remove the block as child and reparent it under block container will
 # either be under this script or part of the block script
 
-
+signal block_placed()
 
 # implement a getter/setter, so that when it is set to something new, code runs
 @export var current_block: StaticBody2D:
@@ -38,7 +38,18 @@ func _physics_process(delta: float) -> void:
 func _on_block_fall_timer_timeout() -> void:
 	if current_block.can_move_down():
 		current_block.global_position.y += 32
+	else:
+		# call a function to maek the player c ontroller lose control of the block,
+		# spawn a new block , etc...
+		
+		# SEND A SIGNAL TO GAME, TO SPAWN A NEW BLOCK
+		# after a timer has passed from placing the current block
+		$BlockPlacementTimer.start()
 
 
 func _on_movement_cooldown_timer_timeout() -> void:
 	can_move = true
+
+
+func _on_block_placement_timer_timeout() -> void:
+	emit_signal("block_placed")

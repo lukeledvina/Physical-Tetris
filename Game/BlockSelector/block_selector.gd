@@ -12,7 +12,7 @@ var z_block: PackedScene
 
 var blocks: Array = [i_block, j_block]#, l_block, o_block, s_block, t_block, z_block]
 
-var available_blocks: Array = blocks
+var available_blocks: Array = blocks.duplicate()
 
 
 #choose a block from the available blocks, remove that block from available blocks
@@ -23,7 +23,7 @@ func select_block() -> PackedScene:
 		block = available_blocks[index]
 		available_blocks.pop_at(index)
 	else:
-		available_blocks = blocks
+		available_blocks = blocks.duplicate()
 		var index = randi() % available_blocks.size()
 		block = available_blocks[index]
 		available_blocks.pop_at(index)

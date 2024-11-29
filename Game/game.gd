@@ -20,6 +20,7 @@ extends Node2D
 
 func _ready() -> void:
 	spawn_next_block()
+	player_controller.connect("block_placed", _on_block_placed)
 
 func spawn_next_block():
 	# call functions on child nodes
@@ -29,3 +30,6 @@ func spawn_next_block():
 	block_instance = block_spawner.spawn_block(block_scene, $BlockContainer/SpawnPosition.global_position)
 	block_container.add_child(block_instance)
 	player_controller.current_block = block_instance
+	
+func _on_block_placed():
+	spawn_next_block()
