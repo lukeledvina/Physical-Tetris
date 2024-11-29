@@ -22,7 +22,7 @@ var can_move: bool = true
 
 # block raycasts left and right need to determine if the block can move left or right
 # current_block.can_move_right() / .can_move_left()
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if active and can_move:
 		if Input.is_action_pressed("move_left") and current_block.can_move_left():
 			current_block.global_position.x -= 32
@@ -39,11 +39,7 @@ func _on_block_fall_timer_timeout() -> void:
 	if current_block.can_move_down():
 		current_block.global_position.y += 32
 	else:
-		# call a function to maek the player c ontroller lose control of the block,
-		# spawn a new block , etc...
-		
-		# SEND A SIGNAL TO GAME, TO SPAWN A NEW BLOCK
-		# after a timer has passed from placing the current block
+		active = false
 		$BlockPlacementTimer.start()
 
 

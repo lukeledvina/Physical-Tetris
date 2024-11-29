@@ -1,81 +1,85 @@
-[gd_scene load_steps=2 format=3 uid="uid://drgl0t7p16nga"]
+[gd_scene load_steps=2 format=3 uid="uid://hdllt85e43b"]
 
-[ext_resource type="PackedScene" uid="uid://blu56r3vgamww" path="res://Blocks/block.tscn" id="1_1yf16"]
+[ext_resource type="PackedScene" uid="uid://blu56r3vgamww" path="res://Blocks/block.tscn" id="1_d0e8f"]
 
-[node name="JBlock" instance=ExtResource("1_1yf16")]
+[node name="ZBlock" instance=ExtResource("1_d0e8f")]
 
 [node name="CollisionPolygon2D" parent="." index="0"]
-polygon = PackedVector2Array(-64, 0, -32, 0, -32, 32, 32, 32, 32, 64, -64, 64)
+position = Vector2(-16, 0)
+polygon = PackedVector2Array(-48, 0, -48, 32, -16, 32, -16, 64, 48, 64, 48, 32, 16, 32, 16, 0)
 
 [node name="SpriteContainer" parent="." index="1"]
-modulate = Color(0.352941, 0.396078, 0.678431, 1)
+modulate = Color(1, 0, 0, 1)
 position = Vector2(-16, 0)
 
 [node name="Sprite2D" parent="SpriteContainer" index="0"]
-position = Vector2(0, 48)
+position = Vector2(0, 16)
 
 [node name="Sprite2D2" parent="SpriteContainer" index="1"]
-offset = Vector2(32, 48)
-
-[node name="Sprite2D3" parent="SpriteContainer" index="2"]
-position = Vector2(-32, 48)
-
-[node name="Sprite2D4" parent="SpriteContainer" index="3"]
 position = Vector2(-32, 16)
 
+[node name="Sprite2D3" parent="SpriteContainer" index="2"]
+position = Vector2(0, 48)
+
+[node name="Sprite2D4" parent="SpriteContainer" index="3"]
+position = Vector2(32, 48)
+
+[node name="RayCastContainer" parent="." index="2"]
+position = Vector2(-16, 0)
+
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="0"]
-position = Vector2(-48, 60)
+position = Vector2(0, 60)
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="1"]
-position = Vector2(-16, 60)
+position = Vector2(32, 60)
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D3" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="2"]
-position = Vector2(16, 60)
+position = Vector2(-32, 28)
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="0"]
-position = Vector2(-48, 4)
+position = Vector2(0, 4)
 rotation = 3.14159
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="1"]
-position = Vector2(-16, 36)
+position = Vector2(-32, 4)
 rotation = 3.14159
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D3" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="2"]
-position = Vector2(16, 36)
+position = Vector2(32, 36)
 rotation = 3.14159
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/EastRayCastContainer" index="0"]
-position = Vector2(28, 48)
+position = Vector2(12, 16)
 rotation = -1.5708
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="RayCastContainer/EastRayCastContainer" index="1"]
-position = Vector2(-36, 16)
+position = Vector2(44, 48)
 rotation = -1.5708
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/WestRayCastContainer" index="0"]
-position = Vector2(-60, 16)
+position = Vector2(-44, 16)
 rotation = 1.5708
 target_position = Vector2(0, 16)
 collision_mask = 3
 
 [node name="RayCast2D2" type="RayCast2D" parent="RayCastContainer/WestRayCastContainer" index="1"]
-position = Vector2(-60, 48)
+position = Vector2(-12, 48)
 rotation = 1.5708
 target_position = Vector2(0, 16)
 collision_mask = 3

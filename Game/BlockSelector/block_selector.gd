@@ -4,13 +4,13 @@ extends Node
 
 var i_block: PackedScene = preload("res://Blocks/i_block.tscn")
 var j_block: PackedScene = preload("res://Blocks/j_block.tscn")
-var l_block: PackedScene
-var o_block: PackedScene
-var s_block: PackedScene
-var t_block: PackedScene
-var z_block: PackedScene
+var l_block: PackedScene = preload("res://Blocks/l_block.tscn")
+var o_block: PackedScene = preload("res://Blocks/o_block.tscn")
+var s_block: PackedScene = preload("res://Blocks/s_block.tscn")
+var t_block: PackedScene = preload("res://Blocks/t_block.tscn")
+var z_block: PackedScene = preload("res://Blocks/z_block.tscn")
 
-var blocks: Array = [i_block, j_block]#, l_block, o_block, s_block, t_block, z_block]
+var blocks: Array = [i_block, j_block, l_block, o_block, s_block, t_block, z_block]
 
 var available_blocks: Array = blocks.duplicate()
 

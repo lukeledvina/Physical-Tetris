@@ -9,7 +9,7 @@ position = Vector2(0, 16)
 polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
 
 [node name="SpriteContainer" parent="." index="1"]
-modulate = Color(1, 0.145098, 0.227451, 1)
+modulate = Color(0.192157, 0.780392, 0.937255, 1)
 position = Vector2(0, 16)
 
 [node name="Sprite2D" parent="SpriteContainer" index="0"]
@@ -41,6 +41,30 @@ collision_mask = 3
 
 [node name="RayCast2D4" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="3"]
 position = Vector2(48, 28)
+target_position = Vector2(0, 16)
+collision_mask = 3
+
+[node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="0"]
+position = Vector2(-48, 4)
+rotation = 3.14159
+target_position = Vector2(0, 16)
+collision_mask = 3
+
+[node name="RayCast2D2" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="1"]
+position = Vector2(-16, 4)
+rotation = 3.14159
+target_position = Vector2(0, 16)
+collision_mask = 3
+
+[node name="RayCast2D3" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="2"]
+position = Vector2(16, 4)
+rotation = 3.14159
+target_position = Vector2(0, 16)
+collision_mask = 3
+
+[node name="RayCast2D4" type="RayCast2D" parent="RayCastContainer/NorthRayCastContainer" index="3"]
+position = Vector2(48, 4)
+rotation = 3.14159
 target_position = Vector2(0, 16)
 collision_mask = 3
 
