@@ -5,9 +5,14 @@ extends StaticBody2D
 @onready var east_container: Node2D = $RayCastContainer/EastRayCastContainer
 @onready var west_container: Node2D = $RayCastContainer/WestRayCastContainer
 
-var down_ray_cast_container: Node2D = south_container
-var right_ray_cast_container: Node2D = east_container
-var left_ray_cast_container: Node2D = west_container
+@onready var south_raycasts: Array = south_container.get_children()
+@onready var north_raycasts: Array = north_container.get_children()
+@onready var east_raycasts: Array = east_container.get_children()
+@onready var west_raycasts: Array = west_container.get_children()
+
+@onready var down_ray_cast_container: Array = south_raycasts
+@onready var right_ray_cast_container: Array = east_raycasts
+@onready var left_ray_cast_container: Array = west_raycasts
 var down_index: int = 2:
 	set(index):
 		if index > 3:
@@ -33,7 +38,7 @@ var left_index: int = 3:
 		else:
 			left_index = index
 
-var ray_cast_container_array: Array = [north_container, east_container, south_container, west_container]
+var ray_cast_container_array: Array = [north_raycasts, east_raycasts, south_raycasts, west_raycasts]
 
 # these functions determine which ray cast will be active next
 func rotate_clockwise():
@@ -53,9 +58,8 @@ func rotate_counter_clockwise():
 	left_ray_cast_container = ray_cast_container_array[left_index]
 
 # checks if the raycasts pointing "down" are colliding with anything
-#currently the wrong arrays are used to get children
 func can_move_down() -> bool: #works
-	var raycasts: Array = south_container.get_children()
+	var raycasts: Array = down_ray_cast_container
 	for raycast in raycasts:
 		if raycast.is_colliding():
 			return false
@@ -63,8 +67,8 @@ func can_move_down() -> bool: #works
 			continue
 	return true
 	
-func can_move_right() -> bool: #doesnt work
-	var raycasts: Array = east_container.get_children()
+func can_move_right() -> bool:
+	var raycasts: Array = right_ray_cast_container
 	for raycast in raycasts:
 		if raycast.is_colliding():
 			return false
@@ -72,8 +76,8 @@ func can_move_right() -> bool: #doesnt work
 			continue
 	return true
 	
-func can_move_left() -> bool: #doesnt work
-	var raycasts: Array = west_container.get_children()
+func can_move_left() -> bool:
+	var raycasts: Array = left_ray_cast_container
 	for raycast in raycasts:
 		if raycast.is_colliding():
 			return false
