@@ -22,12 +22,16 @@ var can_move: bool = true
 
 # block raycasts left and right need to determine if the block can move left or right
 # current_block.can_move_right() / .can_move_left()
-func _physics_process(_delta: float) -> void:
+func _process(_delta: float) -> void:
 	if active and can_move:
 		if Input.is_action_pressed("move_left") and current_block.can_move_left():
 			current_block.global_position.x -= 32
 		elif Input.is_action_pressed("move_right") and current_block.can_move_right():
 			current_block.global_position.x += 32
+		elif Input.is_action_pressed("rotate_clockwise"):
+			current_block.rotate_clockwise()
+		elif Input.is_action_pressed("rotate_counter_clockwise"):
+			current_block.rotate_counter_clockwise()
 		can_move = false
 		$MovementCooldownTimer.start()
 

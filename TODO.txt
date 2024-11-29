@@ -1,5 +1,8 @@
 block rotation
-spawn next block
+	currently is broken... maybe keyframe animations for it?
+score system
+
+material properties
 
 
 CREATE SETTERS FOR ROTATE LEFT AND RIGHT AND DOWN, ALL AS ONE FUNCTION, TO CHECK THE
