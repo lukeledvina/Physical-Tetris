@@ -32,3 +32,5 @@ texture = ExtResource("1_lnf2k")
 [node name="EastRayCastContainer" type="Node2D" parent="RayCastContainer"]
 
 [node name="WestRayCastContainer" type="Node2D" parent="RayCastContainer"]
+
+[node name="SpawnPosition" type="Marker2D" parent="."]

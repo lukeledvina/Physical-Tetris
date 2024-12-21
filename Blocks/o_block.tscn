@@ -3,13 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://blu56r3vgamww" path="res://Blocks/block.tscn" id="1_ms5ig"]
 
 [node name="OBlock" instance=ExtResource("1_ms5ig")]
-position = Vector2(16, -16)
 
 [node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2(0, -32)
 polygon = PackedVector2Array(-32, 0, -32, 64, 32, 64, 32, 0)
 
 [node name="SpriteContainer" parent="." index="1"]
 modulate = Color(1, 1, 0, 1)
+position = Vector2(0, -32)
 
 [node name="Sprite2D" parent="SpriteContainer" index="0"]
 position = Vector2(-16, 16)
@@ -22,6 +23,9 @@ position = Vector2(16, 16)
 
 [node name="Sprite2D4" parent="SpriteContainer" index="3"]
 position = Vector2(16, 48)
+
+[node name="RayCastContainer" parent="." index="2"]
+position = Vector2(0, -32)
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="0"]
 position = Vector2(16, 60)
@@ -68,3 +72,6 @@ position = Vector2(-28, 48)
 rotation = 1.5708
 target_position = Vector2(0, 16)
 collision_mask = 3
+
+[node name="SpawnPosition" parent="." index="3"]
+position = Vector2(0, -32)

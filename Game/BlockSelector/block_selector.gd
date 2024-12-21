@@ -10,7 +10,7 @@ var s_block: PackedScene = preload("res://Blocks/s_block.tscn")
 var t_block: PackedScene = preload("res://Blocks/t_block.tscn")
 var z_block: PackedScene = preload("res://Blocks/z_block.tscn")
 
-var blocks: Array = [j_block]#, i_block, l_block, o_block, s_block, t_block, z_block]
+var blocks: Array = [j_block, i_block, l_block, o_block, s_block, t_block, z_block]
 
 var available_blocks: Array = blocks.duplicate()
 
