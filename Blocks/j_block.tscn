@@ -5,11 +5,12 @@
 [node name="JBlock" instance=ExtResource("1_1yf16")]
 
 [node name="CollisionPolygon2D" parent="." index="0"]
+position = Vector2(48, -48)
 polygon = PackedVector2Array(-64, 0, -32, 0, -32, 32, 32, 32, 32, 64, -64, 64)
 
 [node name="SpriteContainer" parent="." index="1"]
 modulate = Color(0.352941, 0.396078, 0.678431, 1)
-position = Vector2(-16, 0)
+position = Vector2(32, -48)
 
 [node name="Sprite2D" parent="SpriteContainer" index="0"]
 position = Vector2(0, 48)
@@ -22,6 +23,9 @@ position = Vector2(-32, 48)
 
 [node name="Sprite2D4" parent="SpriteContainer" index="3"]
 position = Vector2(-32, 16)
+
+[node name="RayCastContainer" parent="." index="2"]
+position = Vector2(48, -48)
 
 [node name="RayCast2D" type="RayCast2D" parent="RayCastContainer/SouthRayCastContainer" index="0"]
 position = Vector2(-48, 60)

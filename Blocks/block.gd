@@ -42,6 +42,7 @@ var ray_cast_container_array: Array = [north_raycasts, east_raycasts, south_rayc
 
 # these functions determine which ray cast will be active next
 func rotate_clockwise():
+	rotation_degrees += 90
 	down_index -= 1
 	right_index -= 1
 	left_index -= 1
@@ -50,6 +51,7 @@ func rotate_clockwise():
 	left_ray_cast_container = ray_cast_container_array[left_index]
 
 func rotate_counter_clockwise():
+	rotation_degrees -= 90
 	down_index += 1
 	right_index += 1
 	left_index += 1

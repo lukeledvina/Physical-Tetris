@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://blu56r3vgamww" path="res://Blocks/block.tscn" id="1_8fxte"]
 
 [node name="TBlock" instance=ExtResource("1_8fxte")]
+position = Vector2(16, -16)
 
 [node name="CollisionPolygon2D" parent="." index="0"]
 position = Vector2(-16, 0)

@@ -1,5 +1,11 @@
 block rotation
 	currently is broken... maybe keyframe animations for it?
+	rotates wrong, and collisions no longer work after rotation
+	
+	make rotate properly,
+	then fix collisions
+	
+	need to check if it is possible for the blocks to rotate before rotating
 score system
 
 material properties
