@@ -1,5 +1,5 @@
 block rotation
-	fix collisions after rotation
+	fix collisions after rotation (arrays are empty after rotation as soon as they are put into ray_cast_container_array)
 	need to check if it is possible for the blocks to rotate before rotating
 score system
 
