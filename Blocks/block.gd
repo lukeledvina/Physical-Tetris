@@ -23,6 +23,9 @@ var down_ray_cast_container: Array
 var right_ray_cast_container: Array
 var left_ray_cast_container: Array
 
+var rotating_cw: bool = false
+var rotating_ccw: bool = false
+
 func _ready():
 	# Populate raycast arrays
 	south_raycasts = south_container.get_children()
@@ -44,19 +47,25 @@ func update_ray_cast_containers():
 
 # Rotate clockwise
 func rotate_clockwise():
-	rotation_degrees -= 90
-	down_index = (down_index + 1) % 4
-	right_index = (right_index + 1) % 4
-	left_index = (left_index + 1) % 4
-	update_ray_cast_containers()
-
-# Rotate counter-clockwise
-func rotate_counter_clockwise():
+	rotating_cw = true
 	rotation_degrees += 90
 	down_index = (down_index - 1) % 4
 	right_index = (right_index - 1) % 4
 	left_index = (left_index - 1) % 4
 	update_ray_cast_containers()
+	await get_tree().create_timer(0.05).timeout
+	rotating_cw = false
+
+# Rotate counter-clockwise
+func rotate_counter_clockwise():
+	rotating_ccw = true
+	rotation_degrees -= 90
+	down_index = (down_index + 1) % 4
+	right_index = (right_index + 1) % 4
+	left_index = (left_index + 1) % 4
+	update_ray_cast_containers()
+	await get_tree().create_timer(0.05).timeout
+	rotating_ccw = false
 
 # Collision checking functions
 func can_move_down() -> bool:
@@ -77,6 +86,13 @@ func can_move_left() -> bool:
 			return false
 	return true
 
+# this sometimes works if it only goes one block into the area, breaks if block rotates two blocks out of bounds in one rotation
+# set up a node of individual collision boxes , multiply shift by how many collide on rotation
+# check raycasts each time on opposing side and stop shifting if they detect a collision
 
-func _on_rotation_safety_area_body_entered(body):
-	pass # Replace with function body.
+# shit does not work
+func _on_rotation_safety_area_body_entered(_body):
+	if rotating_ccw:
+		self.global_position.x += 32
+	elif rotating_cw:
+		self.global_position.x -= 32

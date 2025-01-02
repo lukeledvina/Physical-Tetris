@@ -37,7 +37,8 @@ script = ExtResource("3_e7cta")
 [node name="BlockSelector" type="Node2D" parent="."]
 script = ExtResource("5_gftsj")
 
-[node name="BlockContainer" type="Node2D" parent="."]
+[node name="BlockContainer" type="StaticBody2D" parent="."]
+collision_layer = 4
 script = ExtResource("6_u5ko3")
 
 [node name="SpawnPosition" type="Marker2D" parent="BlockContainer"]

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://d1spo5kwafqwq"]
+[gd_scene load_steps=3 format=3 uid="uid://d1spo5kwafqwq"]
 
 [ext_resource type="PackedScene" uid="uid://blu56r3vgamww" path="res://Blocks/block.tscn" id="1_dxs3j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr208"]
 
 [node name="IBlock" instance=ExtResource("1_dxs3j")]
 
@@ -8,9 +10,20 @@
 position = Vector2(16, 0)
 polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RotationSafetyArea" index="0"]
-position = Vector2(16, 0)
-polygon = PackedVector2Array(-64, -16, 64, -16, 64, 16, -64, 16)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationSafetyAreaContainer/RotationSafetyArea" index="0"]
+position = Vector2(-32, 0)
+shape = SubResource("RectangleShape2D_dr208")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationSafetyAreaContainer/RotationSafetyArea2" index="0"]
+shape = SubResource("RectangleShape2D_dr208")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationSafetyAreaContainer/RotationSafetyArea3" index="0"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_dr208")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RotationSafetyAreaContainer/RotationSafetyArea4" index="0"]
+position = Vector2(64, 0)
+shape = SubResource("RectangleShape2D_dr208")
 
 [node name="SpriteContainer" parent="." index="2"]
 modulate = Color(0.192157, 0.780392, 0.937255, 1)

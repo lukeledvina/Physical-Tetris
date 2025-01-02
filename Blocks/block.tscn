@@ -9,8 +9,19 @@ script = ExtResource("1_wm3d2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 
-[node name="RotationSafetyArea" type="Area2D" parent="."]
-collision_mask = 3
+[node name="RotationSafetyAreaContainer" type="Node2D" parent="."]
+
+[node name="RotationSafetyArea" type="Area2D" parent="RotationSafetyAreaContainer"]
+collision_mask = 6
+
+[node name="RotationSafetyArea2" type="Area2D" parent="RotationSafetyAreaContainer"]
+collision_mask = 6
+
+[node name="RotationSafetyArea3" type="Area2D" parent="RotationSafetyAreaContainer"]
+collision_mask = 6
+
+[node name="RotationSafetyArea4" type="Area2D" parent="RotationSafetyAreaContainer"]
+collision_mask = 6
 
 [node name="SpriteContainer" type="Node2D" parent="."]
 
@@ -38,4 +49,7 @@ texture = ExtResource("1_lnf2k")
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
 
-[connection signal="body_entered" from="RotationSafetyArea" to="." method="_on_rotation_safety_area_body_entered"]
+[connection signal="body_entered" from="RotationSafetyAreaContainer/RotationSafetyArea" to="." method="_on_rotation_safety_area_body_entered"]
+[connection signal="body_entered" from="RotationSafetyAreaContainer/RotationSafetyArea2" to="." method="_on_rotation_safety_area_body_entered"]
+[connection signal="body_entered" from="RotationSafetyAreaContainer/RotationSafetyArea3" to="." method="_on_rotation_safety_area_body_entered"]
+[connection signal="body_entered" from="RotationSafetyAreaContainer/RotationSafetyArea4" to="." method="_on_rotation_safety_area_body_entered"]
