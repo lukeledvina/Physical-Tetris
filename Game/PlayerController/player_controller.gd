@@ -9,7 +9,7 @@ extends Node
 signal block_placed()
 
 # implement a getter/setter, so that when it is set to something new, code runs
-@export var current_block: StaticBody2D:
+@export var current_block: CharacterBody2D:
 	set(block):
 		current_block = block
 		active = true
@@ -52,4 +52,4 @@ func _on_movement_cooldown_timer_timeout() -> void:
 
 
 func _on_block_placement_timer_timeout() -> void:
-	emit_signal("block_placed")
+	block_placed.emit()

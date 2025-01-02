@@ -1,28 +1,15 @@
 block rotation
-	fix collisions after rotation (arrays are empty after rotation as soon as they are put into ray_cast_container_array)
 	need to check if it is possible for the blocks to rotate before rotating
+		if it rotates and is inside of another collision shape, shift it to the side that is not in the collision shape (left or right)
+		also if it rotates into something below it, push it up 32px
+
 score system
 
 material properties
 
-
-CREATE SETTERS FOR ROTATE LEFT AND RIGHT AND DOWN, ALL AS ONE FUNCTION, TO CHECK THE
-SAME LOGICAL EXPRESSION
 
 
 decide where the reaction logic will take place, on the blocks themselves, etc...
 
 how will reactions act, take the entire block, or just sections of blocks...?
 if colliding with multiple materials, which reactions take precedence...?
-
-
-decide how to architect the blocks, each has four single tetris blocks
-
-
-how to move blocks (when to stop them),
-	i think have collision on all of them
-	but use rays when a timer goes off to detect if it can go down again
-	or if it needs to stop moving and check for reactions at that point
-	
-	this is because as the shape rotates, what will be considered its "bottom"
-	will change

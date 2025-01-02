@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 @onready var south_container: Node2D = $RayCastContainer/SouthRayCastContainer
 @onready var north_container: Node2D = $RayCastContainer/NorthRayCastContainer
@@ -36,12 +36,6 @@ func _ready():
 	# Set initial active containers
 	update_ray_cast_containers()
 
-	# Debugging outputs
-	print("Initial Containers:")
-	print("Down RayCasts:", down_ray_cast_container)
-	print("Right RayCasts:", right_ray_cast_container)
-	print("Left RayCasts:", left_ray_cast_container)
-
 # Update raycast containers after rotation
 func update_ray_cast_containers():
 	down_ray_cast_container = ray_cast_container_array[down_index]
@@ -55,8 +49,6 @@ func rotate_clockwise():
 	right_index = (right_index - 1) % 4
 	left_index = (left_index - 1) % 4
 	update_ray_cast_containers()
-	print("Rotated Clockwise:")
-	print("Down:", down_index, "Right:", right_index, "Left:", left_index)
 
 # Rotate counter-clockwise
 func rotate_counter_clockwise():
@@ -65,8 +57,6 @@ func rotate_counter_clockwise():
 	right_index = (right_index + 1) % 4
 	left_index = (left_index + 1) % 4
 	update_ray_cast_containers()
-	print("Rotated Counter-Clockwise:")
-	print("Down:", down_index, "Right:", right_index, "Left:", left_index)
 
 # Collision checking functions
 func can_move_down() -> bool:
@@ -86,3 +76,7 @@ func can_move_left() -> bool:
 		if raycast.is_colliding():
 			return false
 	return true
+
+
+func _on_rotation_safety_area_body_entered(body):
+	pass # Replace with function body.

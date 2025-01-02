@@ -3,11 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://c37wiaqj314u4" path="res://Blocks/tetris-block.png" id="1_lnf2k"]
 [ext_resource type="Script" path="res://Blocks/block.gd" id="1_wm3d2"]
 
-[node name="Block" type="StaticBody2D"]
+[node name="Block" type="CharacterBody2D"]
 collision_mask = 3
 script = ExtResource("1_wm3d2")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="RotationSafetyArea" type="Area2D" parent="."]
+collision_mask = 3
 
 [node name="SpriteContainer" type="Node2D" parent="."]
 
@@ -34,3 +37,5 @@ texture = ExtResource("1_lnf2k")
 [node name="WestRayCastContainer" type="Node2D" parent="RayCastContainer"]
 
 [node name="SpawnPosition" type="Marker2D" parent="."]
+
+[connection signal="body_entered" from="RotationSafetyArea" to="." method="_on_rotation_safety_area_body_entered"]

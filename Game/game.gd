@@ -1,6 +1,4 @@
 extends Node2D
-
-
 # game.gd manages all of the components under it, connecting them accordingly.
 
 # a block spawner component will need to spawn blocks and put them as children of
@@ -25,7 +23,7 @@ func _ready() -> void:
 func spawn_next_block():
 	# call functions on child nodes
 	var block_scene: PackedScene
-	var block_instance: StaticBody2D
+	var block_instance: CharacterBody2D
 	block_scene = block_selector.select_block()
 	block_instance = block_spawner.spawn_block(block_scene, $BlockContainer/SpawnPosition.global_position)
 	block_container.add_child(block_instance)
