@@ -44,18 +44,18 @@ func update_ray_cast_containers():
 
 # Rotate clockwise
 func rotate_clockwise():
-	rotation_degrees += 90
-	down_index = (down_index - 1) % 4
-	right_index = (right_index - 1) % 4
-	left_index = (left_index - 1) % 4
-	update_ray_cast_containers()
-
-# Rotate counter-clockwise
-func rotate_counter_clockwise():
 	rotation_degrees -= 90
 	down_index = (down_index + 1) % 4
 	right_index = (right_index + 1) % 4
 	left_index = (left_index + 1) % 4
+	update_ray_cast_containers()
+
+# Rotate counter-clockwise
+func rotate_counter_clockwise():
+	rotation_degrees += 90
+	down_index = (down_index - 1) % 4
+	right_index = (right_index - 1) % 4
+	left_index = (left_index - 1) % 4
 	update_ray_cast_containers()
 
 # Collision checking functions

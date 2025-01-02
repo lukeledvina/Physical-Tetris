@@ -27,8 +27,8 @@ func spawn_next_block():
 	block_scene = block_selector.select_block()
 	block_instance = block_spawner.spawn_block(block_scene, $BlockContainer/SpawnPosition.global_position)
 	block_container.add_child(block_instance)
-	block_instance.global_position.x -= block_instance.get_child(3).position.x
-	block_instance.global_position.y -= block_instance.get_child(3).position.y
+	block_instance.global_position.x -= block_instance.get_child(4).position.x
+	block_instance.global_position.y -= block_instance.get_child(4).position.y
 	player_controller.current_block = block_instance
 	
 func _on_block_placed():
