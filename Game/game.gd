@@ -15,6 +15,7 @@ extends Node2D
 @onready var block_selector = $BlockSelector
 @onready var block_container = $BlockContainer
 @onready var reaction_manager = $ReactionManager
+@onready var score_manager = $ScoreManager
 
 func _ready() -> void:
 	spawn_next_block()
@@ -32,4 +33,5 @@ func spawn_next_block():
 	player_controller.current_block = block_instance
 	
 func _on_block_placed():
+	score_manager.check_for_clears()
 	spawn_next_block()

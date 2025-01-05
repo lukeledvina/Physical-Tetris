@@ -44,6 +44,7 @@ func _on_block_fall_timer_timeout() -> void:
 		current_block.global_position.y += 32
 	else:
 		active = false
+		current_block.set_collision_layer_value(3, true)
 		$BlockPlacementTimer.start()
 
 

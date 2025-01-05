@@ -90,7 +90,7 @@ func can_move_left() -> bool:
 # set up a node of individual collision boxes , multiply shift by how many collide on rotation
 # check raycasts each time on opposing side and stop shifting if they detect a collision
 
-# shit does not work
+# shit does not work if rotating opposite and still go out of bounds
 func _on_rotation_safety_area_body_entered(_body):
 	if rotating_ccw:
 		self.global_position.x += 32

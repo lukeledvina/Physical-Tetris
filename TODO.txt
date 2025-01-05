@@ -3,7 +3,11 @@ block rotation
 		if it rotates and is inside of another collision shape, shift it to the side that is not in the collision shape (left or right)
 		also if it rotates into something below it, push it up 32px
 
-score system
+PRIO score system
+	in order to properly clear lines, collision boxes need to be implemented for 
+	each individual block instead of the entire piece, and the sprites will need to be removed for the same block
+	most likely fix is to have sprites be children of the collision shapes, and then queue free the collision shapes
+	when they are part of a line clear
 
 material properties
 

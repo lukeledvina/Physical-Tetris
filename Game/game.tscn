@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cy6hwfffsgrs7"]
+[gd_scene load_steps=11 format=3 uid="uid://cy6hwfffsgrs7"]
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_2n04a"]
 [ext_resource type="Texture2D" uid="uid://dt6ao5sqt2kre" path="res://Grid/grid.png" id="1_ywelm"]
@@ -7,6 +7,10 @@
 [ext_resource type="Script" path="res://Game/BlockSelector/block_selector.gd" id="5_gftsj"]
 [ext_resource type="Script" path="res://Game/block_container.gd" id="6_u5ko3"]
 [ext_resource type="Script" path="res://Game/reaction_manager.gd" id="7_s6w44"]
+[ext_resource type="Script" path="res://Game/score_manager.gd" id="8_pai2l"]
+[ext_resource type="Script" path="res://Game/row.gd" id="9_3nrkg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wubfd"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2n04a")
@@ -53,6 +57,105 @@ collision_layer = 2
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="GameBorder"]
 polygon = PackedVector2Array(479, 39, 430, 39, 425, 719, 870, 719, 873, 39, 801, 39, 801, 681, 479, 681)
 
+[node name="ScoreManager" type="Node2D" parent="."]
+script = ExtResource("8_pai2l")
+
+[node name="Row1" type="Node2D" parent="ScoreManager"]
+position = Vector2(496, 664)
+script = ExtResource("9_3nrkg")
+
+[node name="Area2D" type="Area2D" parent="ScoreManager/Row1"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D2" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(32, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D2"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D3" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(64, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D3"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D4" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(96, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D4"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D5" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(128, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D5"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D6" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(160, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D6"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D7" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(192, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D7"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D8" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(224, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D8"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D9" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(256, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D9"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Area2D10" type="Area2D" parent="ScoreManager/Row1"]
+position = Vector2(288, 0)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreManager/Row1/Area2D10"]
+shape = SubResource("RectangleShape2D_wubfd")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(496, 56)
+
 [connection signal="timeout" from="PlayerController/BlockFallTimer" to="PlayerController" method="_on_block_fall_timer_timeout"]
 [connection signal="timeout" from="PlayerController/MovementCooldownTimer" to="PlayerController" method="_on_movement_cooldown_timer_timeout"]
 [connection signal="timeout" from="PlayerController/BlockPlacementTimer" to="PlayerController" method="_on_block_placement_timer_timeout"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D2" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D3" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D4" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D5" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D6" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D7" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D8" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D9" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="ScoreManager/Row1/Area2D10" to="ScoreManager/Row1" method="_on_area_2d_body_entered"]
